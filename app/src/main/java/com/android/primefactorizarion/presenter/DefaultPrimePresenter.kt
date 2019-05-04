@@ -36,7 +36,9 @@ class DefaultPrimePresenter : PrimePresenter {
     }
 
     override fun onViewDetached() {
-        job?.cancel()
+        if(!job?.isCancelled!!) {
+            job?.cancel()
+        }
     }
 
 }
